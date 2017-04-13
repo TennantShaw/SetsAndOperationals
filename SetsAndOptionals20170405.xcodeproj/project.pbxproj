@@ -10,6 +10,7 @@
 		3004F0351E97056A00B84AFC /* SetsAndOptionals20170405.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3004F02B1E97056A00B84AFC /* SetsAndOptionals20170405.framework */; };
 		3004F03A1E97056A00B84AFC /* SetsAndOptionals20170405Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004F0391E97056A00B84AFC /* SetsAndOptionals20170405Tests.swift */; };
 		3004F03C1E97056A00B84AFC /* SetsAndOptionals20170405.h in Headers */ = {isa = PBXBuildFile; fileRef = 3004F02E1E97056A00B84AFC /* SetsAndOptionals20170405.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3004F0471E97064500B84AFC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004F0461E97064500B84AFC /* Player.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		3004F0341E97056A00B84AFC /* SetsAndOptionals20170405Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SetsAndOptionals20170405Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3004F0391E97056A00B84AFC /* SetsAndOptionals20170405Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsAndOptionals20170405Tests.swift; sourceTree = "<group>"; };
 		3004F03B1E97056A00B84AFC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3004F0461E97064500B84AFC /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				3004F02E1E97056A00B84AFC /* SetsAndOptionals20170405.h */,
+				3004F0461E97064500B84AFC /* Player.swift */,
 				3004F02F1E97056A00B84AFC /* Info.plist */,
 			);
 			path = SetsAndOptionals20170405;
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					3004F02A1E97056A00B84AFC = {
 						CreatedOnToolsVersion = 8.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					3004F0331E97056A00B84AFC = {
@@ -196,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3004F0471E97064500B84AFC /* Player.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +327,7 @@
 		3004F0401E97056A00B84AFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -333,6 +339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tennant.Shaw.SetsAndOptionals20170405;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -340,6 +347,7 @@
 		3004F0411E97056A00B84AFC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -358,6 +366,7 @@
 		3004F0431E97056A00B84AFC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SetsAndOptionals20170405Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tennant.Shaw.SetsAndOptionals20170405Tests;
@@ -369,6 +378,7 @@
 		3004F0441E97056A00B84AFC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = SetsAndOptionals20170405Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Tennant.Shaw.SetsAndOptionals20170405Tests;
