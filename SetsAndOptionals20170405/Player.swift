@@ -63,8 +63,6 @@ func createPlayer(name: String, symbol: Symbol) -> Player? {
     }
 }
 
-var firstPlayer = createPlayer(name: "Tennant", symbol: .x)
-var secondPlayer = createPlayer(name: "Shannon", symbol: .o)
 
 // Create Game func
 
@@ -75,8 +73,6 @@ func createGame(player: Player, secondPlayer: Player) -> Game? {
         return Game(playerOne: player, playerTwo: secondPlayer, playerMove: [])
     }
 }
-
-var newGame = createGame(player: firstPlayer!, secondPlayer: secondPlayer!)
 
 // Create a play func
 
