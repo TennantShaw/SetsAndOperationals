@@ -13,15 +13,17 @@ enum Symbol {
     case o
 }
 
-typealias Move1 = (location: Int, symbol: Symbol)
-
-struct Location : Equatable {
-    var x: Int
-    var y: Int
-    
-    public static func == (lhs: Location, rhs: Location) -> Bool {
-        return lhs.x == rhs.x && lhs.y == rhs.y
-    }
+enum Location: Int {
+    case zero = 0
+    case one = 1
+    case two = 2
+    case three = 3
+    case four = 4
+    case five = 5
+    case six = 6
+    case seven = 7
+    case eight = 8
+    case nine = 9
 }
 
 struct Player : Equatable {
@@ -44,11 +46,11 @@ struct Game : Equatable {
 }
 
 struct Move : Equatable {
-    let location: (Int, Int)
-    let symbol: Symbol
+    let location: Location
+    let player: Player
     
     public static func == (lhs: Move, rhs: Move) -> Bool {
-        return lhs.location == rhs.location && lhs.symbol == rhs.symbol
+        return lhs.location == rhs.location && lhs.player == rhs.player
     }
 }
 
@@ -66,20 +68,183 @@ func createPlayer(name: String, symbol: Symbol) -> Player? {
 
 // Create Game func
 
-func createGame(player: Player, secondPlayer: Player) -> Game? {
-    if player.symbol == secondPlayer.symbol {
+func createGame(xPlayer: Player, oPlayer: Player) -> Game? {
+    if xPlayer.symbol == oPlayer.symbol {
         return nil
     } else {
-        return Game(playerOne: player, playerTwo: secondPlayer, playerMove: [])
+        return Game(playerOne: xPlayer, playerTwo: oPlayer, playerMove: [])
     }
 }
 
 // Create a play func
 
-func playerTurn (player: Player, move: Location, game: Game) -> Game? {
-    return nil
+func play(_ player: Player, _ move: Location, _ game: Game) -> Game? {
+    let turn = Move(location: move, player: player)
+    var newTurn = game
+    
+    if game.playerMove.contains(Move(location: move, player: player)) {
+        return nil
+    } else {
+        newTurn.playerMove.append(turn)
+    }
+    return newTurn
 }
 
+// Create a spot checker func
+
+func symbol(at location: Location, in game: Game) -> Symbol? {
+    var playerSymbol: Symbol?
+    let emptySpace: Symbol? = nil
+    let spots = game.playerMove
+    for i in spots {
+        switch i.location {
+        case .nine:
+            if playerSymbol != nil {
+               return playerSymbol
+            } else {
+            playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .eight:
+            if playerSymbol != nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .seven:
+            if playerSymbol != nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .six:
+            if playerSymbol != nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .five:
+            if playerSymbol != nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .four:
+            if playerSymbol != nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .three:
+            if playerSymbol != nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .two:
+            if playerSymbol != nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .one:
+            if playerSymbol != nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .zero:
+            return emptySpace
+        }
+    }
+    
+    return playerSymbol
+}
+
+func symbol2(at location: Location, in game: Game) -> Symbol? {
+    var playerSymbol: Symbol?
+    let emptySpace: Symbol? = nil
+    let spots = game.playerMove
+    for i in spots {
+        switch i.location {
+        case .nine:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .eight:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .seven:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .six:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .five:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .four:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .three:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .two:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+            }
+            fallthrough
+        case .one:
+            if playerSymbol == nil {
+                return playerSymbol
+            } else {
+                playerSymbol = i.player.symbol
+                fallthrough
+            }
+        case .zero:
+            return emptySpace
+        }
+    }
+    
+    return emptySpace
+}
 
 
 
